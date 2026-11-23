@@ -185,7 +185,7 @@
     position: absolute;
     background-color: #fff;
     border: 1px solid var(--border_color);
-
+    z-index: 30;
 }
 .suggestions li {
     padding: 5px;

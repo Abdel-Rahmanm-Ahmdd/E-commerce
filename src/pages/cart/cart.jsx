@@ -1,10 +1,10 @@
-import {CartContext} from '../../components/context/context'
+import {AllContext} from '../../components/context/context'
 import { useContext } from 'react';
 import './cart.css';
 import { FaTrashAlt } from "react-icons/fa";
 import Animation from "../../components/animation"
 function Cart() {
-    const {cartItems , increaseQuantity , decreaseQuantity , deleteItem} = useContext(CartContext)
+    const {cartItems , increaseQuantity , decreaseQuantity , deleteItem} = useContext(AllContext)
     const total = cartItems.reduce((acc,item)=> acc + item.price * item.quantity ,0)
     return (
         <Animation>

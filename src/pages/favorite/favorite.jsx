@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import Animation from "../../components/animation";
 import Product from "../../components/slideProducts/product";
-import {CartContext} from "../../components/context/context";
+import {AllContext} from "../../components/context/context";
 import './favorite.css'
 function Favorite() {
-    const {favorites} = useContext(CartContext);
+    const {favorites} = useContext(AllContext);
     // const [loading , setLoading] = useState(true)
     return (
         <Animation>

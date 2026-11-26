@@ -12,8 +12,17 @@ import CategoryPage from './pages/categoryPage/categoryPage';
 import SearchResults from './pages/searchResults';
 import Register from './pages/login/register';
 import Login from './pages/login/login';
-import { useState } from 'react';
+import { useState , useEffect , useContext} from 'react';
+import { AllContext } from './components/context/context';
 function App() {
+  const {darkmode} = useContext(AllContext)
+  useEffect(()=> {
+    if(darkmode) {
+      document.documentElement.classList.add("darkmode")
+    }else {
+      document.documentElement.classList.remove("darkmode")
+    }
+  },[darkmode])
   const [haveEmail , setHaveEmail] = useState( ()=> {
     return localStorage.getItem("email")
   })

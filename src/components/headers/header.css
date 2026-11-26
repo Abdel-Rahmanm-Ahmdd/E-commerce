@@ -2,15 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* outline: 1px solid red; */
-}
-:root {
-    --main_color: #0090f0;
-    --p_color: #7b7b7b;
-    --bg_color: #F3F3F3;
-    --white_color: #fff;
-    --color_heading: #253237;
-    --border_color: #d6d6d6d5;
 }
 .top-header .container {
     display: flex;
@@ -18,8 +9,15 @@
     align-items: center;
     padding: 15px 0px;
 }
-.top-header img {
-    width: 150px;
+.top-header .logo {
+    font-weight: 700;
+    color: var(--main_color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.top-header .logo img {
+    width: 35px;
 }
 .top-header .search-box {
     display: flex;
@@ -29,6 +27,7 @@
 .top-header .search-box input {
     width: 400px;
     height: 40px;
+    color: var(--p_color);
     border: 1px solid var(--main_color);
     border-radius: 30px 0px 0px 30px;
     padding: 5px 15px 5px 20px;
@@ -156,7 +155,7 @@
     font-size: 16px;
 }
 .nav-links li.active {
-    background-color: #0079e0;
+    background-color: #1e293b5d;
 }
 .links-icons .icons {
     display: flex;
@@ -164,11 +163,34 @@
     gap: 15px;
 }
 .links-icons .icons p {
-    color: white;
+    color: var(--white_color);
 }
 .links-icons .icons a {
     color: var(--white_color);
     font-size: 20px;
+}
+.dark-icons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.dark-icons .light {
+    color: var(--white_color);
+    font-size: 23px;
+    display: block;
+    cursor: pointer;
+}
+.dark-icons .light.light-mode {
+    display: none;
+}
+.dark-icons .dark {
+    color: var(--white_color);
+    font-size: 23px;
+    display: none;
+    cursor: pointer;
+}
+.dark-icons .dark.dark-mode {
+    display: block;
 }
 .btm-header .links-bar {
     color: var(--white_color);
@@ -183,7 +205,7 @@
     width: 100%;
     list-style: none;
     position: absolute;
-    background-color: #fff;
+    background-color: var(--white_color);
     border: 1px solid var(--border_color);
     z-index: 30;
 }
@@ -202,6 +224,9 @@
 }
 /* ////////////////////////////////// */
 @media (max-width: 1023px) {
+    .top-header .logo {
+        font-size: 10px;
+    }
     .btm-header .container {
         justify-content: none;
         gap: 20px;
@@ -218,8 +243,8 @@
     }
 }
 @media(max-width: 767px) {
-    .top-header img {
-        width: 70px;
+    .top-header .logo img {
+        width: 30px;
     }
     .top-header .search-box input {
         width: 120px;

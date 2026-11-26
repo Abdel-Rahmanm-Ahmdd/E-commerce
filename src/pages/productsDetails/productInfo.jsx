@@ -3,13 +3,13 @@ import { FaStarHalfAlt } from "react-icons/fa";
 import { TiShoppingCart } from "react-icons/ti";
 import { FaRegHeart } from "react-icons/fa";
 import { FaShare } from "react-icons/fa";
-import { CartContext } from "../../components/context/context";
+import { AllContext } from "../../components/context/context";
 import { useContext } from "react";
 import { toast } from 'react-hot-toast'
 import { useNavigate } from "react-router-dom";
 
 function ProductInfo({product}) {
-    const {addToCart , cartItems , addToFav , removeFromFav , favorites} = useContext(CartContext);
+    const {addToCart , cartItems , addToFav , removeFromFav , favorites} = useContext(AllContext);
     const isInCart = cartItems.some(i => i.id == product.id);
     const isInFav = favorites.some(i => i.id == product.id);
     const navigate = useNavigate()

@@ -5,12 +5,12 @@ import {FaRegHeart} from "react-icons/fa";
 import {FaShare} from "react-icons/fa";
 import {Link} from "react-router-dom";
 import {MdDone} from "react-icons/md";
-import {CartContext} from "../context/context";
+import {AllContext} from "../context/context";
 import {useContext} from "react";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 function Product({item}) {
-    const {addToCart, cartItems , addToFav , favorites , removeFromFav} = useContext(CartContext);
+    const {addToCart, cartItems , addToFav , favorites , removeFromFav} = useContext(AllContext);
     const isInCart = cartItems.some(i => i.id == item.id);
     const isInFav = favorites.some(i => i.id == item.id);
     const navigate = useNavigate()

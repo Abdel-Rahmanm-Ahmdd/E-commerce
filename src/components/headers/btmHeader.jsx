@@ -1,15 +1,19 @@
 import './header.css'
 import { FaBars } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
+import { CiLight } from "react-icons/ci";
+import { MdOutlineDarkMode } from "react-icons/md";
 import { MdLogout } from "react-icons/md";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { MdLogin } from "react-icons/md";
 import { Link , useLocation} from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useState , useContext } from 'react';
+import { AllContext } from '../context/context';
 import axios from 'axios'
 function BtmHeader() {
     const location = useLocation()
+    const {darkmode , setDarkmode} = useContext(AllContext)
     const [categories , setCategories] = useState([])
     const [isCategoryOpen , setIsCategory] = useState(false)
     const [linksBar , setLinksBar] = useState(false)
@@ -19,6 +23,14 @@ function BtmHeader() {
         setIsCategory(false)
         setLinksBar(false)
     },[location])
+
+    useEffect(()=> {
+        if(darkmode) {
+            document.documentElement.classList.add("darkmode")
+        }else {
+            document.documentElement.classList.remove("darkmode")
+        }
+    },[darkmode])
 
     useEffect(()=> {
         axios.get(`https://dummyjson.com/products/categories`)
@@ -75,6 +87,10 @@ function BtmHeader() {
                                 <Link to="/register" ><MdLogin /></Link>
                             </>
                         }
+                        <div className="dark-icons" onClick={()=> setDarkmode(!darkmode)}>
+                            <span className={`light ${darkmode? 'light-mode': ''}`}><CiLight /></span>
+                            <span className={`dark ${darkmode? 'dark-mode': ''}`}><MdOutlineDarkMode /></span>
+                        </div>
                     </div>
                 </div>
                 <span className='links-bar' onClick={()=> setLinksBar(!linksBar)}><FaBars /></span>

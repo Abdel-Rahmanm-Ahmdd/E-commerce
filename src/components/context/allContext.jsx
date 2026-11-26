@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import {CartContext} from './context'
+import {AllContext} from './context'
 
-function CartProvider({children}) {
+function ContextProvider({children}) {
     const [cartItems , setCartItems] = useState(()=> {
         const savedCart = localStorage.getItem('cartItems')
         return savedCart ? JSON.parse(savedCart) : [];
@@ -49,19 +49,23 @@ function CartProvider({children}) {
         localStorage.setItem("cartItems" , JSON.stringify(cartItems))
     },[cartItems])
     
+    const [darkmode , setDarkmode] = useState(false)
+
     return (
-        <CartContext.Provider value={{ addToCart , 
+        <AllContext.Provider value={{ addToCart , 
         cartItems , 
         increaseQuantity , 
         decreaseQuantity , 
         deleteItem , 
         addToFav , 
         favorites ,
-        removeFromFav
+        removeFromFav,
+        darkmode,
+        setDarkmode
         }}>
             {children}
-        </CartContext.Provider>
+        </AllContext.Provider>
     )
 }
 
-export default CartProvider;
+export default ContextProvider;

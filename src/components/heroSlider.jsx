@@ -3,12 +3,15 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination , Autoplay } from 'swiper/modules';
 import { Link } from 'react-router-dom';
-import Banner1 from './img/banner_Hero1.jpg'
-import Banner2 from './img/banner_Hero2.jpg'
-import Banner3 from './img/banner_Hero3.jpg'
+import Banner1 from './img/banner1.png';
+import Banner2 from './img/banner2.png';
+import Banner3 from './img/banner3.png';
+import { AllContext } from './context/context';
+import { useContext } from 'react';
 function HeroSlider() {
+    const {darkmode} = useContext(AllContext)
     return (
-        <div className='container'>
+        <div className='container hero-section'>
             <Swiper pagination={{clickable: true}}
             modules={[Pagination , Autoplay]} 
             className="hero"
@@ -25,7 +28,7 @@ function HeroSlider() {
                         <p>Windos Xp/10/7/8 Ps3, Tv Box</p>
                         <Link><button className='btn'>Shop Now</button></Link>
                     </div>
-                    <img src={Banner1} alt="" />
+                    <img className={`${darkmode? "dark-img" : ""}`} src={Banner1} alt="" />
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className='content'>
@@ -34,7 +37,7 @@ function HeroSlider() {
                         <p>Windos Xp/10/7/8 Ps3, Tv Box</p>
                         <Link><button className='btn'>Shop Now</button></Link>
                     </div>
-                    <img src={Banner2} alt="" />
+                    <img className={`${darkmode? "dark-img" : ""}`} src={Banner2} alt="" />
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className='content'>
@@ -43,7 +46,7 @@ function HeroSlider() {
                         <p>Windos Xp/10/7/8 Ps3, Tv Box</p>
                         <Link><button className='btn'>Shop Now</button></Link>
                     </div>
-                    <img src={Banner3} alt="" />
+                    <img className={`${darkmode? "dark-img" : ""}`} src={Banner3} alt="" />
                 </SwiperSlide>
             </Swiper>
         </div>
